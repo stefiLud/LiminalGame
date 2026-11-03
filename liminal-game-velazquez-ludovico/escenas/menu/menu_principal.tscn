@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b8h7i7cewrbag"]
+
+[ext_resource type="Script" uid="uid://baewudco4jodg" path="res://escenas/menu/menu_principal.gd" id="1_4yab6"]
+[ext_resource type="VideoStream" uid="uid://dxtbqmcax5vhg" path="res://escenas/menu/imagenes/Escenarios.ogv" id="1_7d0fj"]
+[ext_resource type="Texture2D" uid="uid://bwt0tt488ne1s" path="res://escenas/menu/imagenes/Crayón artesanal con “JUGAR”.png" id="2_gqujs"]
+[ext_resource type="AudioStream" uid="uid://dd0ius6fsee8m" path="res://escenas/menu/audio/Canción para bañar la luna Las Magdalenas.mp3" id="3_axh8l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axh8l"]
+load_path = "res://.godot/imported/Crayón artesanal con “JUGAR”.png-f91513f9b77b89c56d4469d3a25f9a28.ctex"
+
+[node name="MenuPrincipal" type="Control" unique_id=1403890331]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4yab6")
+
+[node name="VideoFondo" type="VideoStreamPlayer" parent="." unique_id=1399915193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_7d0fj")
+autoplay = true
+expand = true
+loop = true
+
+[node name="BotonJugar" type="TextureButton" parent="." unique_id=1487247745]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 427.0
+offset_right = 2737.0
+offset_bottom = 1227.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("2_gqujs")
+texture_hover = SubResource("CompressedTexture2D_axh8l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Musica" type="AudioStreamPlayer" parent="." unique_id=1656736134]
+stream = ExtResource("3_axh8l")
+volume_db = -10.174
+autoplay = true
+parameters/looping = true
