@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="LiminalGame_Velazquez_Ludovico"
+run/main_scene="uid://b8h7i7cewrbag"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ProgresoJuego="*uid://dluq7owremh1f"
+MusicaGlobal="*uid://dc1yrhsvmrd54"
+
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1080
+window/size/window_height_override=648
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor]
 

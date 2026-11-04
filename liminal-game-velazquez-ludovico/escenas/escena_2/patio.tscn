@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://c2hahw02ddjv5"]
+
+[ext_resource type="Script" uid="uid://cc48uqc0fm8su" path="res://escenas/escena_2/patio.gd" id="1_j580x"]
+[ext_resource type="Texture2D" uid="uid://stsu0hpxyidm" path="res://escenas/escena_2/imagenes/patio.png" id="2_aencf"]
+[ext_resource type="PackedScene" uid="uid://dqrg8qxqw4t3g" path="res://escenas/escena_1/node_2d.tscn" id="3_8set7"]
+[ext_resource type="Script" uid="uid://cw1nctnq8hbon" path="res://escenas/escena_1/sol.gd" id="4_jcoyj"]
+[ext_resource type="Texture2D" uid="uid://8s22nk3uc1" path="res://escenas/escena_1/imagenes/0.png" id="5_km1tx"]
+[ext_resource type="Texture2D" uid="uid://dr8ipiirt7fn2" path="res://escenas/escena_1/imagenes/1.png" id="6_p13hi"]
+[ext_resource type="Texture2D" uid="uid://cqs3e01u3sp6q" path="res://escenas/escena_1/imagenes/3.png" id="7_5dewr"]
+[ext_resource type="Texture2D" uid="uid://xdplugd187nl" path="res://escenas/escena_1/imagenes/4.png" id="8_5hoto"]
+[ext_resource type="Texture2D" uid="uid://bmmire51v8hw5" path="res://escenas/escena_1/imagenes/5.png" id="9_kea18"]
+[ext_resource type="Texture2D" uid="uid://but1hkayb8228" path="res://escenas/escena_1/imagenes/00.png" id="10_mo4io"]
+[ext_resource type="Texture2D" uid="uid://bxd186rjo4idw" path="res://escenas/escena_2/imagenes/sharon.png" id="11_eal2x"]
+[ext_resource type="AudioStream" uid="uid://bfp4brajpy5vb" path="res://escenas/escena_1/audio/sonido_sharon.mp3" id="12_tfhkf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c3en"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_km1tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p13hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5dewr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5hoto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kea18")
+}],
+"loop": 1,
+"name": &"Caminata",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_mo4io")
+}],
+"loop": 1,
+"name": &"Parada",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_22m2j"]
+radius = 463.3335
+height = 2389.3335
+
+[node name="Patio" type="Node2D" unique_id=805719109]
+script = ExtResource("1_j580x")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=902261699]
+position = Vector2(960, 540)
+texture = ExtResource("2_aencf")
+
+[node name="Sol" parent="." unique_id=376652908 instance=ExtResource("3_8set7")]
+z_index = 2
+position = Vector2(250, 800)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("4_jcoyj")
+altura_piso = 230.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Sol" unique_id=397989365]
+texture_filter = 1
+position = Vector2(18.612432, -1124.2554)
+scale = Vector2(2.7849007, 2.758903)
+sprite_frames = SubResource("SpriteFrames_1c3en")
+animation = &"Caminata"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sol" unique_id=1266955677]
+position = Vector2(52, -1140)
+shape = SubResource("CapsuleShape2D_22m2j")
+
+[node name="Sharon" type="Sprite2D" parent="." unique_id=62959471]
+position = Vector2(1150, 750)
+scale = Vector2(0.7642643, 0.714831)
+texture = ExtResource("11_eal2x")
+
+[node name="SonidoSharon" type="AudioStreamPlayer" parent="." unique_id=711398397]
+stream = ExtResource("12_tfhkf")
+
+[node name="EfectoRosa" type="CanvasModulate" parent="." unique_id=1503514026]

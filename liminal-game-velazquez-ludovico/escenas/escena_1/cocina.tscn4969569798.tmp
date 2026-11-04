@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://d4b82a2vlh00m"]
+
+[ext_resource type="Texture2D" uid="uid://dwe6ep7us7uxx" path="res://escenas/escena_1/imagenes/fondo_cocina.png" id="1_gpe6x"]
+[ext_resource type="Script" uid="uid://dlyxic6wgvdhj" path="res://escenas/escena_1/scripts/cocina.gd" id="1_mqnmw"]
+[ext_resource type="Texture2D" uid="uid://55fs5i3rba4r" path="res://escenas/escena_1/imagenes/Escenarios (7).png" id="3_p4fkg"]
+[ext_resource type="PackedScene" uid="uid://dqrg8qxqw4t3g" path="res://escenas/escena_1/node_2d.tscn" id="3_wxmpx"]
+[ext_resource type="Script" uid="uid://cw1nctnq8hbon" path="res://escenas/escena_1/sol.gd" id="4_oskix"]
+[ext_resource type="VideoStream" uid="uid://djil67piewy5k" path="res://escenas/escena_1/imagenes/sol_entrada.ogv" id="4_p4fkg"]
+
+[node name="Cocina" type="Node2D" unique_id=1705405213]
+script = ExtResource("1_mqnmw")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1426987520]
+texture = ExtResource("1_gpe6x")
+
+[node name="Sol" parent="." unique_id=1040106521 instance=ExtResource("3_wxmpx")]
+position = Vector2(736, 214)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("4_oskix")
+
+[node name="SpriteSol" type="Sprite2D" parent="Sol" unique_id=654334171]
+visible = false
+position = Vector2(5525, 2485)
+texture = ExtResource("3_p4fkg")
+
+[node name="ObjetosInteractivos" type="Node2D" parent="." unique_id=1680506177]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1217542666]
+zoom = Vector2(0.6, 0.6)
+
+[node name="CapaVideo" type="CanvasLayer" parent="." unique_id=2127035050]
+
+[node name="VideoEntrada" type="VideoStreamPlayer" parent="CapaVideo" unique_id=1124898786]
+offset_left = 100.0
+offset_right = 1252.0
+offset_bottom = 648.0
+stream = ExtResource("4_p4fkg")
+autoplay = true
+expand = true
+
+[node name="Interfaz" type="CanvasLayer" parent="." unique_id=940263923]
+layer = 2
+
+[node name="Fundido" type="ColorRect" parent="Interfaz" unique_id=1313171112]
+modulate = Color(1, 1, 1, 0.003921569)
+anchors_preset = -1
+anchor_left = -0.83800006
+anchor_top = -0.84400004
+anchor_right = 0.79200006
+anchor_bottom = 1.0
+offset_left = 965.3761
+offset_top = 546.91205
+offset_right = 239.61597
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Dialogos" type="Control" parent="Interfaz" unique_id=2109507769]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inventario" type="Control" parent="Interfaz" unique_id=1712480021]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

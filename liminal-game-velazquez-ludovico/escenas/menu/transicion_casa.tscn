@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cae3pa8frb5k8"]
+
+[ext_resource type="Script" uid="uid://blisemfw7722t" path="res://escenas/menu/scripts/transicion_casa.gd" id="1_mrcja"]
+[ext_resource type="Texture2D" uid="uid://dii71k7cqdfeu" path="res://escenas/menu/imagenes/transicioncasa.png" id="2_uny6y"]
+
+[node name="TransicionCasa" type="Node2D" unique_id=478376035]
+script = ExtResource("1_mrcja")
+
+[node name="Paisaje" type="Sprite2D" parent="." unique_id=1304395521]
+scale = Vector2(1, 1.005)
+texture = ExtResource("2_uny6y")
+
+[node name="Camara" type="Camera2D" parent="." unique_id=737107102]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1529056261]
+
+[node name="Fundido" type="ColorRect" parent="CanvasLayer" unique_id=1580318332]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

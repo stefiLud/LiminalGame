@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dqrg8qxqw4t3g"]
+
+[ext_resource type="Texture2D" uid="uid://dd2a2kldt4vci" path="res://Player1/caminata stefi.png" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw35c"]
+size = Vector2(11213, 1331)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(0, 216, 594, 1539)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(594, 216, 594, 1539)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(1188, 216, 594, 1539)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(2376, 216, 594, 1539)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e48y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epypp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdubu")
+}],
+"loop": 1,
+"name": &"Caminata",
+"speed": 4.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1040106521]
+position = Vector2(-989, 3029)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=196135037]
+position = Vector2(6590, 10141)
+shape = SubResource("RectangleShape2D_dw35c")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1724155319]
+texture_filter = 1
+position = Vector2(5393, 2618)
+scale = Vector2(2.158906, 2.1624756)
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"Caminata"
+frame = 2
+frame_progress = 0.088758096

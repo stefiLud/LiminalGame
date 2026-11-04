@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://d4b82a2vlh00m"]
+
+[ext_resource type="Texture2D" uid="uid://dwe6ep7us7uxx" path="res://escenas/escena_1/imagenes/fondo_cocina.png" id="1_gpe6x"]
+[ext_resource type="Script" uid="uid://dlyxic6wgvdhj" path="res://escenas/escena_1/scripts/cocina.gd" id="1_mqnmw"]
+[ext_resource type="PackedScene" uid="uid://dqrg8qxqw4t3g" path="res://escenas/escena_1/node_2d.tscn" id="3_wxmpx"]
+[ext_resource type="Script" uid="uid://cw1nctnq8hbon" path="res://escenas/escena_1/sol.gd" id="4_oskix"]
+[ext_resource type="VideoStream" uid="uid://djil67piewy5k" path="res://escenas/escena_1/imagenes/sol_entrada.ogv" id="4_p4fkg"]
+[ext_resource type="Texture2D" uid="uid://8s22nk3uc1" path="res://escenas/escena_1/imagenes/0.png" id="5_igyj0"]
+[ext_resource type="Texture2D" uid="uid://dr8ipiirt7fn2" path="res://escenas/escena_1/imagenes/1.png" id="6_krgqx"]
+[ext_resource type="Texture2D" uid="uid://cqs3e01u3sp6q" path="res://escenas/escena_1/imagenes/3.png" id="7_73i0t"]
+[ext_resource type="Texture2D" uid="uid://xdplugd187nl" path="res://escenas/escena_1/imagenes/4.png" id="8_8n0dc"]
+[ext_resource type="Texture2D" uid="uid://bmmire51v8hw5" path="res://escenas/escena_1/imagenes/5.png" id="9_abaoy"]
+[ext_resource type="Texture2D" uid="uid://but1hkayb8228" path="res://escenas/escena_1/imagenes/00.png" id="10_krgqx"]
+[ext_resource type="Script" uid="uid://cvakle8vigiq" path="res://escenas/escena_1/alacena.gd" id="11_8n0dc"]
+[ext_resource type="Texture2D" uid="uid://bo0do4wyi15do" path="res://escenas/escena_1/imagenes/alacena_abierta.png" id="12_abaoy"]
+[ext_resource type="AudioStream" uid="uid://ws7rg57y1a57" path="res://escenas/escena_1/audio/voz_mama.mp3" id="14_gqjgl"]
+[ext_resource type="Texture2D" uid="uid://iya08op3qvel" path="res://escenas/escena_1/imagenes/dialogos/misiones/carta_misiones.png" id="15_3fpxp"]
+[ext_resource type="Script" uid="uid://vctta6oyql72" path="res://escenas/escena_1/flecha_patio.gd" id="16_3fpxp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eshay"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_igyj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_krgqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_73i0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8n0dc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_abaoy")
+}],
+"loop": 1,
+"name": &"Caminata",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_krgqx")
+}],
+"loop": 1,
+"name": &"Parada",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wb3vx"]
+radius = 463.3335
+height = 2389.3335
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6v6y"]
+size = Vector2(121, 1077.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb3vx"]
+size = Vector2(83, 1095)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2rh"]
+size = Vector2(1977, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73i0t"]
+size = Vector2(492, 202)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g6v6y"]
+vertices = PackedVector2Array(-952.0625, 286.7578, -485.78906, 275.27344, -499.77344, 462.97656, -953.9297, 545, 983.85156, 545, 530.85156, 465.02344, 980.1406, 297.90625, 516.8594, 294.09375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-962, 277, -475, 265, -489, 453, 520, 455, 506, 284, 990, 288, 994, 555, -964, 555)])
+
+[node name="Cocina" type="Node2D" unique_id=1705405213]
+script = ExtResource("1_mqnmw")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1426987520]
+texture = ExtResource("1_gpe6x")
+
+[node name="Sol" parent="." unique_id=1040106521 instance=ExtResource("3_wxmpx")]
+z_index = 2
+position = Vector2(680, 140)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("4_oskix")
+altura_piso = 230.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Sol" unique_id=1426479177]
+texture_filter = 1
+position = Vector2(-81.400696, 40)
+scale = Vector2(2.9149342, 2.8796597)
+sprite_frames = SubResource("SpriteFrames_eshay")
+animation = &"Caminata"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sol" unique_id=857603011]
+position = Vector2(-20.000092, -6.6666946)
+shape = SubResource("CapsuleShape2D_wb3vx")
+
+[node name="Muros" type="StaticBody2D" parent="." unique_id=490215649]
+
+[node name="MuroIzquierdo" type="CollisionShape2D" parent="Muros" unique_id=228948188]
+position = Vector2(-1014, 8)
+shape = SubResource("RectangleShape2D_g6v6y")
+
+[node name="MuroDerecho" type="CollisionShape2D" parent="Muros" unique_id=931809847]
+position = Vector2(989, -11)
+shape = SubResource("RectangleShape2D_wb3vx")
+
+[node name="MuroInferior" type="CollisionShape2D" parent="Muros" unique_id=1461579165]
+position = Vector2(-5, 597)
+shape = SubResource("RectangleShape2D_jj2rh")
+
+[node name="ObjetosInteractivos" type="Node2D" parent="." unique_id=1680506177]
+
+[node name="Alacena" type="Area2D" parent="ObjetosInteractivos" unique_id=1004891334]
+position = Vector2(6, 153)
+scale = Vector2(2, 2)
+script = ExtResource("11_8n0dc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetosInteractivos/Alacena" unique_id=1042961555]
+position = Vector2(5.5, 38.5)
+shape = SubResource("RectangleShape2D_73i0t")
+
+[node name="ImagenAbierta" type="Sprite2D" parent="ObjetosInteractivos/Alacena" unique_id=975668459]
+position = Vector2(9.875036, 40.50001)
+scale = Vector2(0.15630789, 0.15679014)
+texture = ExtResource("12_abaoy")
+
+[node name="ZonaCaminable" type="NavigationRegion2D" parent="." unique_id=553840939]
+navigation_polygon = SubResource("NavigationPolygon_g6v6y")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1217542666]
+
+[node name="CapaVideo" type="CanvasLayer" parent="." unique_id=2127035050]
+
+[node name="VideoEntrada" type="VideoStreamPlayer" parent="CapaVideo" unique_id=1124898786]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("4_p4fkg")
+volume_db = -80.0
+autoplay = true
+expand = true
+
+[node name="Interfaz" type="CanvasLayer" parent="." unique_id=940263923]
+layer = 2
+
+[node name="Fundido" type="ColorRect" parent="Interfaz" unique_id=1313171112]
+modulate = Color(1, 1, 1, 0.003921569)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Dialogos" type="Control" parent="Interfaz" unique_id=2109507769]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImagenDialogo" type="TextureRect" parent="Interfaz/Dialogos" unique_id=1396975239]
+modulate = Color(1, 1, 1, 0.003921569)
+self_modulate = Color(1, 1, 1, 0.003921569)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BotonSiguiente" type="Button" parent="Interfaz/Dialogos" unique_id=217834346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="VozMama" type="AudioStreamPlayer" parent="Interfaz/Dialogos" unique_id=1424381255]
+stream = ExtResource("14_gqjgl")
+volume_db = -5.543
+
+[node name="Inventario" type="Control" parent="Interfaz" unique_id=1712480021]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CartaMisiones" type="TextureRect" parent="Interfaz" unique_id=126215598]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1235.0
+offset_right = 1235.0
+offset_bottom = 1099.0
+grow_horizontal = 2
+scale = Vector2(0.23622835, 0.2582879)
+mouse_filter = 2
+texture = ExtResource("15_3fpxp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FlechaPatio" type="Button" parent="Interfaz" unique_id=86758250]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "←"
+script = ExtResource("16_3fpxp")
+
+[connection signal="abrir_puzzle" from="ObjetosInteractivos/Alacena" to="." method="_on_alacena_abrir_puzzle"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://lsk72e8ihfg0"]
+
+[ext_resource type="VideoStream" uid="uid://djil67piewy5k" path="res://escenas/escena_1/imagenes/sol_entrada.ogv" id="1_71jk5"]
+
+[node name="Control" type="Control" unique_id=2117989527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1801530899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_71jk5")
+autoplay = true
+expand = true

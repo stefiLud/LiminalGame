@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cdlv1etemjp6g"]
+
+[ext_resource type="Texture2D" uid="uid://c3x43gydgswiw" path="res://player 2/caminata Sharon.png" id="1_387w1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eulg"]
+atlas = ExtResource("1_387w1")
+region = Rect2(130, 0, 720, 2835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2binv"]
+atlas = ExtResource("1_387w1")
+region = Rect2(890, 0, 720, 2835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm1gv"]
+atlas = ExtResource("1_387w1")
+region = Rect2(133, 0, 696, 2835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17b1y"]
+atlas = ExtResource("1_387w1")
+region = Rect2(829, 0, 696, 2835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uyom"]
+atlas = ExtResource("1_387w1")
+region = Rect2(1525, 0, 696, 2835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj8xl"]
+atlas = ExtResource("1_387w1")
+region = Rect2(2221, 0, 696, 2835)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5x3i"]
+atlas = ExtResource("1_387w1")
+region = Rect2(2917, 0, 696, 2835)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mm1bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eulg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2binv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm1gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17b1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uyom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj8xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5x3i")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=620661377]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=502065081]
+texture_filter = 1
+position = Vector2(1586, 335)
+sprite_frames = SubResource("SpriteFrames_mm1bc")
+frame = 3
+frame_progress = 0.19998232

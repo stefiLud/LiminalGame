@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://djis5ms6mnf0t"]
+
+[ext_resource type="Script" uid="uid://bjrubkhenjdlw" path="res://escenas/escena_1/puzzle_alacena.gd" id="1_khc4a"]
+[ext_resource type="Texture2D" uid="uid://byqixu5gacg1" path="res://escenas/escena_1/imagenes/alacenacosas1.png" id="2_vjtoa"]
+[ext_resource type="Texture2D" uid="uid://ddkj77la0elv5" path="res://escenas/escena_1/imagenes/osorosa.png" id="3_c0d1g"]
+[ext_resource type="Texture2D" uid="uid://boo0bpmhuyi4t" path="res://escenas/escena_1/imagenes/carita_sharon.png" id="3_r3ip0"]
+[ext_resource type="Texture2D" uid="uid://iah1eab82jxk" path="res://escenas/escena_1/imagenes/ViñetaRosa.png" id="4_vjtoa"]
+[ext_resource type="AudioStream" uid="uid://bfp4brajpy5vb" path="res://escenas/escena_1/audio/sonido_sharon.mp3" id="4_w4d74"]
+[ext_resource type="Script" uid="uid://rw5j3gtsyaa8" path="res://escenas/escena_1/carta_misiones_puzzle.gd" id="7_vjtoa"]
+[ext_resource type="Texture2D" uid="uid://iya08op3qvel" path="res://escenas/escena_1/imagenes/dialogos/misiones/carta_misiones.png" id="8_c0d1g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6v6y"]
+radius = 13.2908325
+height = 84.07092
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wb3vx"]
+radius = 22.608154
+height = 183.84326
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2rh"]
+size = Vector2(58.71968, 79.04236)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4yk33"]
+radius = 98.0
+height = 308.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bqfod"]
+load_path = "res://.godot/imported/sharond1.png-e8c97c3492075d09e9c703ccdb24bf7c.ctex"
+
+[node name="PuzzleAlacena" type="Node2D" unique_id=429577759]
+script = ExtResource("1_khc4a")
+
+[node name="FondoPuzzle" type="Sprite2D" parent="." unique_id=2089630219]
+texture = ExtResource("2_vjtoa")
+
+[node name="Objetos" type="Node2D" parent="." unique_id=1333613400]
+position = Vector2(4, 1)
+
+[node name="Cuchara" type="Area2D" parent="Objetos" unique_id=1862461433]
+position = Vector2(-185, 263)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Cuchara" unique_id=1276307983]
+position = Vector2(-35.000122, -49)
+rotation = 0.31415927
+shape = SubResource("CapsuleShape2D_g6v6y")
+
+[node name="PaloAmasar" type="Area2D" parent="Objetos" unique_id=1386602775]
+position = Vector2(365, 95)
+
+[node name="PaloRosa" type="Sprite2D" parent="Objetos/PaloAmasar" unique_id=1144053012]
+position = Vector2(530.6317, -447.579)
+rotation = -0.025034769
+scale = Vector2(0.073161714, 0.0805259)
+skew = 0.001172185
+texture = ExtResource("3_c0d1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/PaloAmasar" unique_id=1716793175]
+position = Vector2(-1.9999695, 5.9999924)
+rotation = -1.3107423
+shape = SubResource("CapsuleShape2D_wb3vx")
+
+[node name="Receta" type="Area2D" parent="Objetos" unique_id=1077028751]
+position = Vector2(-488, 249)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Receta" unique_id=1131271071]
+position = Vector2(-3.999939, 6.1035156e-05)
+rotation = -0.13439035
+shape = SubResource("RectangleShape2D_jj2rh")
+
+[node name="Oso" type="Area2D" parent="Objetos" unique_id=16429409]
+position = Vector2(907, -377)
+
+[node name="OsoRosa" type="Sprite2D" parent="Objetos/Oso" unique_id=1043721184]
+position = Vector2(-8.999981, 18.999992)
+rotation = -0.012217305
+scale = Vector2(0.2704832, 0.28377184)
+texture = ExtResource("3_c0d1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objetos/Oso" unique_id=1861454399]
+position = Vector2(-18, 7)
+shape = SubResource("CapsuleShape2D_4yk33")
+
+[node name="SharonUI" type="CanvasLayer" parent="." unique_id=833671018]
+
+[node name="VinetaRosa" type="TextureRect" parent="SharonUI" unique_id=1707713769]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.005)
+mouse_filter = 2
+texture = ExtResource("4_vjtoa")
+
+[node name="DialogoSharon" type="TextureRect" parent="SharonUI" unique_id=905029585]
+visible = false
+offset_left = 30.999992
+offset_top = 5.000023
+offset_right = 2693.0
+offset_bottom = 561.0
+scale = Vector2(0.24558394, 0.270618)
+mouse_filter = 0
+texture = SubResource("CompressedTexture2D_bqfod")
+
+[node name="CaritaSharon" type="TextureButton" parent="SharonUI" unique_id=1601959562]
+offset_left = -921.99994
+offset_top = 253.00012
+offset_right = 160.00006
+offset_bottom = 1359.1444
+scale = Vector2(0.24156575, 0.24992047)
+texture_normal = ExtResource("3_r3ip0")
+
+[node name="SonidoSharon" type="AudioStreamPlayer" parent="SharonUI" unique_id=1700280734]
+stream = ExtResource("4_w4d74")
+volume_db = -8.0
+
+[node name="CameraPuzzle" type="Camera2D" parent="." unique_id=572134943]
+
+[node name="CapaMisiones" type="CanvasLayer" parent="." unique_id=1733291759]
+layer = 5
+script = ExtResource("7_vjtoa")
+
+[node name="CartaMisiones" type="TextureRect" parent="CapaMisiones" unique_id=137534385]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_c0d1g")

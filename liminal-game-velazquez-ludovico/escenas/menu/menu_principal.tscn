@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://b8h7i7cewrbag"]
 
-[ext_resource type="Script" uid="uid://baewudco4jodg" path="res://escenas/menu/menu_principal.gd" id="1_4yab6"]
-[ext_resource type="VideoStream" uid="uid://dxtbqmcax5vhg" path="res://escenas/menu/imagenes/Escenarios.ogv" id="1_7d0fj"]
+[ext_resource type="Script" uid="uid://baewudco4jodg" path="res://escenas/menu/scripts/menu_principal.gd" id="1_4yab6"]
+[ext_resource type="VideoStream" uid="uid://cud25pjth1d83" path="res://escenas/menu/imagenes/menu.ogv" id="2_axh8l"]
 [ext_resource type="Texture2D" uid="uid://bwt0tt488ne1s" path="res://escenas/menu/imagenes/Crayón artesanal con “JUGAR”.png" id="2_gqujs"]
-[ext_resource type="AudioStream" uid="uid://dd0ius6fsee8m" path="res://escenas/menu/audio/Canción para bañar la luna Las Magdalenas.mp3" id="3_axh8l"]
+[ext_resource type="Texture2D" uid="uid://dii71k7cqdfeu" path="res://escenas/menu/imagenes/transicioncasa.png" id="3_8qhkl"]
+[ext_resource type="Shader" uid="uid://dm0v2kdpowfmu" path="res://escenas/menu/menu_principal.gdshader" id="3_aemwv"]
+[ext_resource type="AudioStream" uid="uid://dd0ius6fsee8m" path="res://audio/musica_menu.mp3" id="3_axh8l"]
+[ext_resource type="Texture2D" uid="uid://d2ai420mguko6" path="res://escenas/menu/imagenes/cieloextra.png" id="3_msw0b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e7qrj"]
+shader = ExtResource("3_aemwv")
+shader_parameter/altura_recorte = 0.075
+shader_parameter/irregularidad = 0.012
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axh8l"]
 load_path = "res://.godot/imported/Crayón artesanal con “JUGAR”.png-f91513f9b77b89c56d4469d3a25f9a28.ctex"
@@ -24,10 +32,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("1_7d0fj")
+stream = ExtResource("2_axh8l")
 autoplay = true
 expand = true
 loop = true
+
+[node name="VistaTransicion" type="SubViewportContainer" parent="." unique_id=727918161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Vista" type="SubViewport" parent="VistaTransicion" unique_id=707120569]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Mundo" type="Node2D" parent="VistaTransicion/Vista" unique_id=1143699035]
+
+[node name="CieloExtra" type="Sprite2D" parent="VistaTransicion/Vista/Mundo" unique_id=1913306770]
+z_index = -1
+position = Vector2(0, -850)
+texture = ExtResource("3_msw0b")
+
+[node name="Paisaje" type="Sprite2D" parent="VistaTransicion/Vista/Mundo" unique_id=1994112764]
+material = SubResource("ShaderMaterial_e7qrj")
+texture = ExtResource("3_8qhkl")
+
+[node name="Camara" type="Camera2D" parent="VistaTransicion/Vista/Mundo" unique_id=1598896261]
+position = Vector2(0, -1080)
 
 [node name="BotonJugar" type="TextureButton" parent="." unique_id=1487247745]
 layout_mode = 0
@@ -43,6 +79,5 @@ stretch_mode = 0
 
 [node name="Musica" type="AudioStreamPlayer" parent="." unique_id=1656736134]
 stream = ExtResource("3_axh8l")
-volume_db = -10.174
-autoplay = true
+volume_db = -19.35
 parameters/looping = true
