@@ -291,6 +291,10 @@ func iniciar_dialogos(nueva_secuencia: Array[Dictionary]) -> void:
 	# No mostrar salida mientras se habla.
 	flecha_patio.hide()
 
+	# Detener cualquier voz anterior
+	# al iniciar una nueva conversación.
+	voz_mama.stop()
+
 	configurar_imagen_dialogo()
 
 	dialogos.show()
@@ -318,8 +322,7 @@ func mostrar_dialogo_actual() -> void:
 	var personaje: String = datos["personaje"]
 	var ruta_imagen: String = datos["imagen"]
 
-	voz_mama.stop()
-
+	# Cargar imagen del diálogo.
 	if ResourceLoader.exists(ruta_imagen):
 
 		imagen_dialogo.texture = load(ruta_imagen)
@@ -330,8 +333,22 @@ func mostrar_dialogo_actual() -> void:
 		imagen_dialogo.texture = null
 		push_warning("No se encontró: " + ruta_imagen)
 
-	if personaje == "mama" and voz_mama.stream != null:
-		voz_mama.play()
+	# ======================================
+	# VOZ DE MAMÁ SIN REINICIARSE
+	# ======================================
+
+	if personaje == "mama":
+
+		# Si la voz ya está sonando,
+		# continúa desde donde estaba.
+		if voz_mama.stream != null and not voz_mama.playing:
+			voz_mama.play()
+
+	else:
+
+		# Cuando habla Sol, detener la voz.
+		if voz_mama.playing:
+			voz_mama.stop()
 
 
 # ==========================================
@@ -444,6 +461,8 @@ func _on_voz_mama_finished() -> void:
 
 	var datos: Dictionary = secuencia_actual[indice_dialogo]
 
+	# Si sigue hablando mamá cuando termina
+	# el audio, volver a reproducirlo.
 	if datos["personaje"] == "mama" and voz_mama.stream != null:
 		voz_mama.play()
 
